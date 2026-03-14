@@ -1,0 +1,22 @@
+package U.DynamicProgramming;
+
+public class SpaceOptimizationFib {
+
+	public static int getFibonacci(int n) {
+		int curr = 0;
+		int prev1 = 0;
+		int prev2 = 1;
+		for(int i=2;i<=n;i++) {
+			curr = prev1+prev2;
+			prev1 = prev2;
+			prev2 = curr;
+		}
+		
+		return curr;
+	}
+	public static void main(String[] args) {
+		int n=6;
+		
+		System.out.println(getFibonacci(n));
+	}
+}

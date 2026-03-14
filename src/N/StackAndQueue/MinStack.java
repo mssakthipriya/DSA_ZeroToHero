@@ -1,0 +1,49 @@
+package N.StackAndQueue;
+
+import java.util.Stack;
+
+public class MinStack {
+	Stack<Integer> stack;
+	Stack<Integer> minStack;
+	
+	public MinStack() {
+		stack = new Stack<>();
+		minStack = new Stack<>();
+	}
+	
+	public void push(int x) {
+		stack.push(x);
+		if(minStack.isEmpty()||x<=minStack.peek())
+			minStack.push(x);
+	}
+	public void pop() {
+		int x = stack.pop();
+		
+		if(x==minStack.peek())
+			minStack.pop();
+	}
+	
+	public int top() {
+		return stack.peek();		
+	}
+	
+	public int getMin() {
+		return minStack.peek();
+	}
+	
+	
+	public static void main(String[] args) {
+		MinStack min = new MinStack();
+		
+		min.push(5);
+		min.push(-2);
+		min.push(0);
+		min.push(-3);
+		System.out.println(min.getMin());
+		min.pop();
+		System.out.println(min.top());
+		System.out.println(min.getMin());
+		
+	}
+
+}
